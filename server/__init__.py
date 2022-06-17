@@ -25,6 +25,31 @@ def create_app(test_config=None):
     def home():
         return "HelloWorld!"
 
+    # api-endpoints
+    @app.route('/something', methods=['GET'])
+    def READ():
+        return jsonify({
+            'success': True
+        })
+
+    @app.route('/something', methods=['POST'])
+    def CREATE():
+        return jsonify({
+            'success': True
+        })
+
+    @app.route('/something/<id>', methods=['PATCH'])
+    def UPDATE(id):
+        return jsonify({
+            'success': True
+        })
+
+    @app.route('/something/<id>', methods=['DELETE'])
+    def DELETE(id):
+        return jsonify({
+            'success': True
+        })
+
     # error handler
     @app.errorhandler(404)
     def not_found(error):
